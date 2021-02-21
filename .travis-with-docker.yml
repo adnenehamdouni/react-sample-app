@@ -1,0 +1,16 @@
+language: generic
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t adnenehamdouni/react-sample-app -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true adnenehamdouni/react-sample-app npm run test
+
+after_success:
+  - docker build -t adnenehamdouni/react-sample-app .
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push adnenehamdouni/react-sample-app

@@ -1,16 +1,19 @@
-language: generic
-sudo: required
+language: node_js
+node_js:
+  - 10
+  - 12
 
-services:
-  - docker
-
-before_install:
-  - docker build -t adnenehamdouni/react-sample-app -f Dockerfile.dev .
+install:
+  - npm ci
+  - npm run link
 
 script:
-  - docker run -e CI=true adnenehamdouni/react-sample-app npm run test
+  - npm run lint
+  - npm test
 
-after_success:
-  - docker build -t adnenehamdouni/react-sample-app .
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push adnenehamdouni/react-sample-app
+jobs:
+  include:
+    - stage: release
+      node_js: lts/*
+      script:
+        - npm run release
