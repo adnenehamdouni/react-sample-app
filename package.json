@@ -1,5 +1,11 @@
 {
   "name": "react-sample-app",
+  "author": "Adnene HAMDOUNI",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adnenehamdouni/react-sample-app/issues"
+  },
+  "homepage": "https://github.com/adnenehamdouni/react-sample-app#readme",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,6 +17,19 @@
     "eject": "react-scripts eject",
     "release": "semantic-release"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adnenehamdouni/react-sample-app.git"
+  },
+  "keywords": [
+    "changelog",
+    "commit-analyzer",
+    "github",
+    "publish",
+    "release",
+    "semantic-release",
+    "gitmoji"
+  ],
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -65,5 +84,9 @@
     "lodash.mergewith": "^4.6.2",
     "lodash.uniq": "^4.5.0",
     "node-emoji": "^1.10.0"
+  },
+  "ava": {
+    "babel": false,
+    "compileEnhancements": false
   }
 }
