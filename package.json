@@ -5,6 +5,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "lint": "eslint ./src/index.js",
     "link": "npm link ../react-sample-app --no-save",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
